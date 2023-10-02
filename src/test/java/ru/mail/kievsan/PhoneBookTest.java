@@ -40,7 +40,7 @@ public class PhoneBookTest {
     @EmptySource
     @NullSource
     void add_empty_name_failure(String name) {
-        String phone = "111";
+        String phone = "11111";
         int expectedCount = 0;
         int contactsCount = bk.add(name, phone);
         assertEquals(expectedCount, contactsCount);
