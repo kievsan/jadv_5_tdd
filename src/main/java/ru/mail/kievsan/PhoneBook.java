@@ -3,6 +3,7 @@ package ru.mail.kievsan;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.TreeMap;
+import java.util.Optional;
 
 public class PhoneBook {
 
@@ -28,7 +29,12 @@ public class PhoneBook {
     }
 
     public String findByNumber(String phoneNumber) {
-        return null;
+        if (phoneNumber == null || phoneNumber.isEmpty()) {
+            return "";
+        }
+        return Optional.ofNullable(contactPhone.get(phoneNumber))
+                .map(Contact::name)
+                .orElse("");
     }
 
 }
