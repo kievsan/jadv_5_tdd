@@ -96,7 +96,7 @@ public class PhoneBookTest {
     @ValueSource(strings = {"USER1"})
     void findByNameFailure(String name) {
         String expectedPhone = "";
-        assertEquals(bk.findByName(name), expectedPhone);
+        assertEquals(expectedPhone, bk.findByName(name));
     }
 
 }
