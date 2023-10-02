@@ -28,7 +28,7 @@ public class PhoneBookTest {
     }
 
     @Test
-    void add_success() {
+    void addSuccess() {
         bk.add("USER1", "11111");
         bk.add("USER2", "22222");
         int contactsCount = bk.add("USER3", "33333");
@@ -39,10 +39,29 @@ public class PhoneBookTest {
     @ParameterizedTest
     @EmptySource
     @NullSource
-    void add_empty_name_failure(String name) {
+    void addEmptyNameFailure(String name) {
         String phone = "11111";
         int expectedCount = 0;
         int contactsCount = bk.add(name, phone);
+        assertEquals(expectedCount, contactsCount);
+    }
+
+    @ParameterizedTest
+    @EmptySource
+    @NullSource
+    void addEmptyPhoneFailure(String phone) {
+        String name = "USER1";
+        int expectedCount = 0;
+        int contactsCount = bk.add(name, phone);
+        assertEquals(expectedCount, contactsCount);
+    }
+
+    @Test
+    void addSkipDoubleSuccess() {
+        bk.add("USER1", "11111");
+        bk.add("USER1", "11111");
+        int contactsCount = bk.add("USER1", "2222");
+        int expectedCount = 1;
         assertEquals(expectedCount, contactsCount);
     }
 
