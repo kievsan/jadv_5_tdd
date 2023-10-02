@@ -65,4 +65,21 @@ public class PhoneBookTest {
         assertEquals(expectedCount, contactsCount);
     }
 
+    @Test
+    void findByNumber_success() {
+        String expectedName = "USER1";
+        String phone = "11111";
+        bk.add(expectedName, phone);
+        assertEquals(expectedName, bk.findByNumber(phone));
+    }
+
+    @ParameterizedTest
+    @EmptySource
+    @NullSource
+    @ValueSource(strings = {"11111"})
+    void findByNumber_failure(String phone) {
+        String expectedName = "";
+        assertEquals(expectedName, bk.findByNumber(phone));
+    }
+
 }

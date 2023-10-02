@@ -27,4 +27,8 @@ public class PhoneBook {
         return contactName.size();
     }
 
+    public String findByNumber(String phoneNumber) {
+        return null;
+    }
+
 }
