@@ -37,4 +37,8 @@ public class PhoneBook {
                 .orElse("");
     }
 
+    public String findByName(String name) {
+        return null;
+    }
+
 }

@@ -66,7 +66,7 @@ public class PhoneBookTest {
     }
 
     @Test
-    void findByNumber_success() {
+    void findByNumberSuccess() {
         String expectedName = "USER1";
         String phone = "11111";
         bk.add(expectedName, phone);
@@ -77,9 +77,26 @@ public class PhoneBookTest {
     @EmptySource
     @NullSource
     @ValueSource(strings = {"11111"})
-    void findByNumber_failure(String phone) {
+    void findByNumberFailure(String phone) {
         String expectedName = "";
         assertEquals(expectedName, bk.findByNumber(phone));
+    }
+
+    @Test
+    void findByNameSuccess() {
+        String name = "USER1";
+        String expectedPhone = "11111";
+        bk.add(name, expectedPhone);
+        assertEquals(expectedPhone, bk.findByName(name));
+    }
+
+    @ParameterizedTest
+    @EmptySource
+    @NullSource
+    @ValueSource(strings = {"USER1"})
+    void findByNameFailure(String name) {
+        String expectedPhone = "";
+        assertEquals(bk.findByName(name), expectedPhone);
     }
 
 }
