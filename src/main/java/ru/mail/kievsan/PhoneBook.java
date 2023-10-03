@@ -46,4 +46,8 @@ public class PhoneBook {
                 .orElse("");
     }
 
+    public void printAllNames() {
+        System.out.print("");
+    }
+
 }
