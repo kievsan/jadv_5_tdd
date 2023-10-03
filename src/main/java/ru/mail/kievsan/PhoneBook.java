@@ -47,7 +47,7 @@ public class PhoneBook {
     }
 
     public void printAllNames() {
-        System.out.print("");
+        contactName.keySet().forEach(System.out::println);
     }
 
 }
